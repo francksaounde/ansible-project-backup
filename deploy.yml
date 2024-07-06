@@ -63,7 +63,7 @@
     - name: Copy website file template
       template:
         src: index.html.j2
-        dest: /home/vagrant/index.html
+        dest: /home/admin/index.html
 
     - name: Create Apache container
       docker_container:
@@ -73,4 +73,4 @@
         ports:
           - "80:80" 
         volumes: 
-          - /home/vagrant/index.html:/usr/local/apache2/htdocs/index.html
+          - /home/admin/index.html:/usr/local/apache2/htdocs/index.html
