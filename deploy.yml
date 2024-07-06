@@ -3,6 +3,8 @@
   hosts: prod
   become: true
   vars:
+  vars_files:
+    - files/secrets/credentials.yml
   pre_tasks:
     - name: Install EPEL repo
       package: name=epel-release state=present 
