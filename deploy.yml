@@ -26,6 +26,14 @@
           - device-mapper-persistent-data
           - lvm2
 
+
+    - name: Install pre-requisite packages under conditions
+      yum: name='{{ item }}' state=present
+      loop: 
+           - wget
+           - git
+      when: ansible_distribution == "CentOS"
+
     - name: Add Docker CE repo
       get_url:
         url: https://download.docker.com/linux/centos/docker-ce.repo
@@ -50,6 +58,11 @@
         name: httpd
         source: pull
 
+    - name: Copy website file template
+      template:
+        src: index.html.j2
+        dest: /home/vagrant/index.html
+
     - name: Create Apache container
       docker_container:
         name: webapp
@@ -57,3 +70,5 @@
         pull: true
         ports:
           - "80:80" 
+        volumes: 
+          - /home/vagrant/index.html:/usr/local/apache2/htdocs/index.html
