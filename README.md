@@ -12,8 +12,7 @@ This is done by exposing port 80 and replacing the index file in the default Apa
 
 Before the application is deployed, the templates/index.html.j2 file can be modified to meet specific requirements.
 In fact, in this "basic" demonstration, it just displays : 
-bienvenue sur <client_machine_name>
- 
+`Bienvenue sur <client_machine_name> ` 
 
 Requirements
 ------------
