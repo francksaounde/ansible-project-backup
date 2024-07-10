@@ -1,7 +1,7 @@
 ---
    # "Apache Installation using docker"
     - name: Install EPEL repo
-      package: name=epel-release state=present 
+      package: name=epel-release state=latest 
       when: ansible_distribution == "CentOS"
 
     - name: download pip script
